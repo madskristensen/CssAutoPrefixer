@@ -8,7 +8,7 @@ or get the [CI build](http://vsixgallery.com/extension/J1da7ad9e-85b3-4a0c-8e45-
 
 ---------------------------------------
 
-Prettier is an opinionated JavaScript formatter inspired by refmt with advanced support for language features from ES2017, JSX, and Flow. It removes all original styling and ensures that all outputted JavaScript conforms to a consistent style.
+Write your CSS rules without vendor prefixes (in fact, forget about them entirely). Autoprefixer will use the data based on current browser popularity and property support to apply prefixes for you.
 
 See the [change log](CHANGELOG.md) for changes and road map.
 
