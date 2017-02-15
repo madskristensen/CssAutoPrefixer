@@ -1,6 +1,6 @@
 # Road map
 
-- [ ] Nothing yet...
+- [x] Added UTF-8 encoding support
 
 Features that have a checkmark are complete and available for
 download in the
