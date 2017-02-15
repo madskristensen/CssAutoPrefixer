@@ -1,6 +1,6 @@
 # CSS AutoPrefixer
 
-[![Build status](https://ci.appveyor.com/api/projects/status/t38jbrjn8akd2jla?svg=true)](https://ci.appveyor.com/project/madskristensen/javascriptprettier)
+[![Build status](https://ci.appveyor.com/api/projects/status/dr60r5gqjd7jjnf4?svg=true)](https://ci.appveyor.com/project/madskristensen/cssautoprefixer)
 
 <!-- Update the VS Gallery link after you upload the VSIX-->
 Download this extension from the [Marketplace](https://visualstudiogallery.msdn.microsoft.com/[GuidFromGallery])
