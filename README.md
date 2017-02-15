@@ -17,7 +17,7 @@ See the [change log](CHANGELOG.md) for changes and road map.
 - Auto-prefixes CSS properties
 - Uses [autoprefixer](https://github.com/postcss/autoprefixer) node module
 
-### Prettify
+### Auto-prefix
 This extension calls the [autoprefixer](https://github.com/postcss/autoprefixer) node module behind the scenes to add missing vendor prefixes to any CSS document.
 
 For example, take the following code:
