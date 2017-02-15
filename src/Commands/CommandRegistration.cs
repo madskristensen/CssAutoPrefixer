@@ -18,6 +18,8 @@ namespace CssAutoPrefixer
     [TextViewRole(PredefinedTextViewRoles.PrimaryDocument)]
     internal sealed class CommandRegistration : IVsTextViewCreationListener
     {
+        public static string[] FileExtensions { get; } = { ".css" };
+
         [Import]
         private IVsEditorAdaptersFactoryService AdaptersFactory { get; set; }
 
@@ -36,7 +38,7 @@ namespace CssAutoPrefixer
 
             string ext = Path.GetExtension(doc.FilePath);
 
-            if (!Constants.FileExtensions.Contains(ext, StringComparer.OrdinalIgnoreCase))
+            if (!FileExtensions.Contains(ext, StringComparer.OrdinalIgnoreCase))
                 return;
 
             ITextBufferUndoManager undoManager = UndoProvider.GetTextBufferUndoManager(view.TextBuffer);
@@ -53,11 +55,9 @@ namespace CssAutoPrefixer
         private static async System.Threading.Tasks.Task Install(NodeProcess node)
         {
             var statusbar = (IVsStatusbar)ServiceProvider.GlobalProvider.GetService(typeof(SVsStatusbar));
-            object icon = (short)Microsoft.VisualStudio.Shell.Interop.Constants.SBAI_Synch;
 
             statusbar.FreezeOutput(0);
             statusbar.SetText($"Installing {NodeProcess.Packages} npm modules...");
-            statusbar.Animation(1, icon);
             statusbar.FreezeOutput(1);
 
             bool success = await node.EnsurePackageInstalled();
@@ -65,7 +65,6 @@ namespace CssAutoPrefixer
 
             statusbar.FreezeOutput(0);
             statusbar.SetText($"Installing {NodeProcess.Packages} npm modules... {status}");
-            statusbar.Animation(0, icon);
             statusbar.FreezeOutput(1);
         }
 
