@@ -68,13 +68,16 @@ namespace CssAutoPrefixer
         {
             if (pguidCmdGroup == _commandGroup && prgCmds[0].cmdID == _commandId)
             {
-                if (_node != null && _node.IsReadyToExecute())
+                if (_node != null)
                 {
-                    prgCmds[0].cmdf = (uint)OLECMDF.OLECMDF_ENABLED | (uint)OLECMDF.OLECMDF_SUPPORTED;
-                }
-                else
-                {
-                    prgCmds[0].cmdf = (uint)OLECMDF.OLECMDF_SUPPORTED;
+                    if (_node.IsReadyToExecute())
+                    {
+                        prgCmds[0].cmdf = (uint)OLECMDF.OLECMDF_ENABLED | (uint)OLECMDF.OLECMDF_SUPPORTED;
+                    }
+                    else
+                    {
+                        prgCmds[0].cmdf = (uint)OLECMDF.OLECMDF_SUPPORTED;
+                    }
                 }
 
                 return VSConstants.S_OK;
