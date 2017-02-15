@@ -2,8 +2,7 @@
 
 [![Build status](https://ci.appveyor.com/api/projects/status/dr60r5gqjd7jjnf4?svg=true)](https://ci.appveyor.com/project/madskristensen/cssautoprefixer)
 
-<!-- Update the VS Gallery link after you upload the VSIX-->
-Download this extension from the [Marketplace](https://visualstudiogallery.msdn.microsoft.com/[GuidFromGallery])
+Download this extension from the [Marketplace](https://marketplace.visualstudio.com/items?itemName=MadsKristensen.CSSAutoPrefixer)
 or get the [CI build](http://vsixgallery.com/extension/J1da7ad9e-85b3-4a0c-8e45-b2ae59a575a7/).
 
 ---------------------------------------
