@@ -15,10 +15,12 @@ namespace CssAutoPrefixer
 {
     [Export(typeof(IVsTextViewCreationListener))]
     [ContentType("CSS")]
+    [ContentType("LESS")]
+    [ContentType("SCSS")]
     [TextViewRole(PredefinedTextViewRoles.PrimaryDocument)]
     internal sealed class CommandRegistration : IVsTextViewCreationListener
     {
-        public static string[] FileExtensions { get; } = { ".css" };
+        public static string[] FileExtensions { get; } = { ".css", ".less", ".sass", ".scss" };
 
         [Import]
         private IVsEditorAdaptersFactoryService AdaptersFactory { get; set; }

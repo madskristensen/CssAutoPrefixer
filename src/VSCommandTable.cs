@@ -16,11 +16,19 @@ namespace CssAutoPrefixer
         public const string guidPackageCmdSetString = "df207aa8-51d1-44f8-b6c1-31af17cce355";
         public const string CssEditorString = "a5401142-f49d-43db-90b1-f57ba349e55c";
         public const string CssEditorWithEncodingString = "226f7e34-0ae8-4157-9cd8-b66b4eaf2c7b";
+        public const string LessEditorString = "28c69eda-edf9-4ca8-9ebe-443348b6d916";
+        public const string LessEditorWithEncodingString = "eb284e36-4c91-422b-8df6-4dfc2ec3d350";
+        public const string ScssEditorString = "181fe41b-5a5d-479f-9f8f-bf665f4ebc2a";
+        public const string ScssEditorWithEncodingString = "52334ead-0711-4a03-804e-7169f077a621";
         public const string CssCmdSetString = "64da400e-b4ad-4d67-aa92-4b7acb01ecd5";
         public static Guid guidPackage = new Guid(guidPackageString);
         public static Guid guidPackageCmdSet = new Guid(guidPackageCmdSetString);
         public static Guid CssEditor = new Guid(CssEditorString);
         public static Guid CssEditorWithEncoding = new Guid(CssEditorWithEncodingString);
+        public static Guid LessEditor = new Guid(LessEditorString);
+        public static Guid LessEditorWithEncoding = new Guid(LessEditorWithEncodingString);
+        public static Guid ScssEditor = new Guid(ScssEditorString);
+        public static Guid ScssEditorWithEncoding = new Guid(ScssEditorWithEncodingString);
         public static Guid CssCmdSet = new Guid(CssCmdSetString);
     }
     /// <summary>

@@ -1,6 +1,6 @@
 # Road map
 
-- [ ] Nothing yet...
+- [x] Support for LESS and Scss
 
 Features that have a checkmark are complete and available for
 download in the

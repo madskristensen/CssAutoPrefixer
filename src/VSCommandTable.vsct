@@ -32,6 +32,10 @@
   <KeyBindings>
     <KeyBinding guid="guidPackageCmdSet" id="AutoPrefixCommandId" mod1="Control" mod2="Control" key1="K" key2="J" editor="CssEditor"/>
     <KeyBinding guid="guidPackageCmdSet" id="AutoPrefixCommandId" mod1="Control" mod2="Control" key1="K" key2="J" editor="CssEditorWithEncoding"/>
+    <KeyBinding guid="guidPackageCmdSet" id="AutoPrefixCommandId" mod1="Control" mod2="Control" key1="K" key2="J" editor="LessEditor"/>
+    <KeyBinding guid="guidPackageCmdSet" id="AutoPrefixCommandId" mod1="Control" mod2="Control" key1="K" key2="J" editor="LessEditorWithEncoding"/>
+    <KeyBinding guid="guidPackageCmdSet" id="AutoPrefixCommandId" mod1="Control" mod2="Control" key1="K" key2="J" editor="ScssEditor"/>
+    <KeyBinding guid="guidPackageCmdSet" id="AutoPrefixCommandId" mod1="Control" mod2="Control" key1="K" key2="J" editor="ScssEditorWithEncoding"/>
   </KeyBindings>
 
   <Symbols>
@@ -42,9 +46,14 @@
       <IDSymbol name="AutoPrefixCommandId" value="0x0100" />
     </GuidSymbol>
 
-    <!-- CSS Editor guids-->
+    <!-- Exising Editor guids-->
     <GuidSymbol name="CssEditor" value="{a5401142-f49d-43db-90b1-f57ba349e55c}" />
     <GuidSymbol name="CssEditorWithEncoding" value="{226F7E34-0AE8-4157-9CD8-B66B4EAF2C7B}" />
+    <GuidSymbol name="LessEditor" value="{28C69EDA-EDF9-4CA8-9EBE-443348B6D916}" />
+    <GuidSymbol name="LessEditorWithEncoding" value="{eb284e36-4c91-422b-8df6-4dfc2ec3d350}" />
+    <GuidSymbol name="ScssEditor" value="{181FE41B-5A5D-479F-9F8F-BF665F4EBC2A}" />
+    <GuidSymbol name="ScssEditorWithEncoding" value="{52334EAD-0711-4a03-804E-7169F077A621}" />
+
     <GuidSymbol name="CssCmdSet" value="{64DA400E-B4AD-4D67-AA92-4B7ACB01ECD5}">
       <IDSymbol name="cssContextMenu" value="2" />
     </GuidSymbol>

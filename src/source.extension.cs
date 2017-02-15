@@ -13,6 +13,6 @@ namespace CssAutoPrefixer
         public const string Language = "en-US";
         public const string Version = "0.5";
         public const string Author = "Mads Kristensen";
-        public const string Tags = "CSS, autoprefixer";
+        public const string Tags = "CSS, LESS, Sass, Scss, autoprefixer";
     }
 }
