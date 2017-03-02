@@ -32,43 +32,50 @@ namespace CssAutoPrefixer
             if (IsReadyToExecute())
                 return true;
 
-            bool success = await Task.Run(() =>
-             {
-                 IsInstalling = true;
+            IsInstalling = true;
 
-                 try
-                 {
-                     if (!Directory.Exists(_installDir))
-                         Directory.CreateDirectory(_installDir);
+            try
+            {
+                if (!Directory.Exists(_installDir))
+                    Directory.CreateDirectory(_installDir);
 
-                     var start = new ProcessStartInfo("cmd", $"/c npm install {Packages}")
-                     {
-                         WorkingDirectory = _installDir,
-                         UseShellExecute = false,
-                         RedirectStandardOutput = true,
-                         CreateNoWindow = true,
-                     };
+                var start = new ProcessStartInfo("cmd", $"/c npm install {Packages}")
+                {
+                    WorkingDirectory = _installDir,
+                    UseShellExecute = false,
+                    CreateNoWindow = true,
+                    RedirectStandardOutput = true,
+                    RedirectStandardError = true,
+                    StandardOutputEncoding = Encoding.UTF8,
+                    StandardErrorEncoding = Encoding.UTF8,
+                };
 
-                     ModifyPathVariable(start);
+                ModifyPathVariable(start);
 
-                     using (var proc = Process.Start(start))
-                     {
-                         proc.WaitForExit();
-                         return proc.ExitCode == 0;
-                     }
-                 }
-                 catch (Exception ex)
-                 {
-                     Logger.Log(ex);
-                     return false;
-                 }
-                 finally
-                 {
-                     IsInstalling = false;
-                 }
-             });
+                using (var proc = Process.Start(start))
+                {
+                    string output = await proc.StandardOutput.ReadToEndAsync();
+                    string error = await proc.StandardError.ReadToEndAsync();
 
-            return success;
+                    if (!string.IsNullOrEmpty(output))
+                        Logger.Log(output);
+
+                    if (!string.IsNullOrEmpty(error))
+                        Logger.Log(error);
+
+                    proc.WaitForExit();
+                    return proc.ExitCode == 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.Log(ex);
+                return false;
+            }
+            finally
+            {
+                IsInstalling = false;
+            }
         }
 
         public async Task<string> ExecuteProcess(string input)
@@ -81,31 +88,33 @@ namespace CssAutoPrefixer
                 UseShellExecute = false,
                 CreateNoWindow = true,
                 RedirectStandardOutput = true,
+                RedirectStandardError = true,
                 RedirectStandardInput = true,
                 StandardOutputEncoding = Encoding.UTF8,
+                StandardErrorEncoding = Encoding.UTF8,
             };
 
             ModifyPathVariable(start);
 
             try
             {
-                var sb = new StringBuilder();
-
                 using (var proc = Process.Start(start))
                 {
-                    using (StreamWriter stream = proc.StandardInput)
+                    using (var stream = new StreamWriter(proc.StandardInput.BaseStream, Encoding.UTF8))
                     {
                         await stream.WriteAsync(input);
                     }
 
-                    while (!proc.StandardOutput.EndOfStream)
+                    string output = await proc.StandardOutput.ReadToEndAsync();
+                    string error = await proc.StandardError.ReadToEndAsync();
+
+                    if (!string.IsNullOrEmpty(error))
                     {
-                        string line = await proc.StandardOutput.ReadLineAsync();
-                        sb.AppendLine(line);
+                        Logger.Log(error);
                     }
 
                     proc.WaitForExit();
-                    return sb.ToString();
+                    return output;
                 }
             }
             catch (Exception ex)

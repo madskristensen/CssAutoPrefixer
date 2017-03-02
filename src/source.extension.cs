@@ -11,7 +11,7 @@ namespace CssAutoPrefixer
         public const string Name = "CSS AutoPrefixer";
         public const string Description = @"Write your CSS rules without vendor prefixes (in fact, forget about them entirely). Autoprefixer will use the data based on current browser popularity and property support to apply prefixes for you.";
         public const string Language = "en-US";
-        public const string Version = "0.6";
+        public const string Version = "0.7";
         public const string Author = "Mads Kristensen";
         public const string Tags = "CSS, LESS, Sass, Scss, autoprefixer";
     }
