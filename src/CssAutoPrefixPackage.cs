@@ -4,8 +4,8 @@ using System.Runtime.InteropServices;
 
 namespace CssAutoPrefixer
 {
-    [PackageRegistration(UseManagedResourcesOnly = true)]
-    [InstalledProductRegistration("#110", "#112", Vsix.Version, IconResourceID = 400)]
+    [PackageRegistration(UseManagedResourcesOnly = true, AllowsBackgroundLoading = true)]
+    [InstalledProductRegistration(Vsix.Name, Vsix.Description, Vsix.Version)]
     [Guid(PackageGuids.guidPackageString)]
     [ProvideMenuResource("Menus.ctmenu", 1)]
     public sealed class CssAutoPrefixPackage : AsyncPackage

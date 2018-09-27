@@ -11,7 +11,7 @@ namespace CssAutoPrefixer
         public const string Packages = "postcss-cli autoprefixer";
 
         private static string _installDir = Path.Combine(Path.GetTempPath(), Vsix.Name, Packages.GetHashCode().ToString());
-        private static string _executable = Path.Combine(_installDir, "node_modules\\.bin\\postcss.cmd");
+        private static readonly string _executable = Path.Combine(_installDir, "node_modules\\.bin\\postcss.cmd");
 
         public bool IsInstalling
         {
@@ -83,7 +83,7 @@ namespace CssAutoPrefixer
             if (!await EnsurePackageInstalled())
                 return null;
 
-            var start = new ProcessStartInfo("cmd", $"/c \"{_executable}\" --use autoprefixer")
+            var start = new ProcessStartInfo("cmd", $"/c \"{_executable}\" --use autoprefixer --no-map")
             {
                 UseShellExecute = false,
                 CreateNoWindow = true,
